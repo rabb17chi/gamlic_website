@@ -1,0 +1,475 @@
+================================================================================
+GAMLIC GAME-DEV COMPANY WEBSITE - PLANNING DOCUMENT
+================================================================================
+
+Generated: Research and Recommendations for Website Development
+================================================================================
+
+
+PART 1: WEBSITE ELEMENTS & STRUCTURE
+================================================================================
+
+Essential Pages & Sections:
+
+1. HOMEPAGE
+   - Hero section with company branding
+   - Featured game showcase (highlight your 2D RPG)
+   - Brief company mission/vision statement
+   - Call-to-action buttons (View Games, Contact Us, Play Demo)
+   - Smooth scroll indicators or WASD movement hints
+
+2. GAMES PORTFOLIO PAGE
+   - Grid/list view of all games
+   - Featured section for your 2D RPG with:
+     * High-quality screenshots/GIFs
+     * Game description and features
+     * Playable demo embed (if available)
+     * Download/purchase links
+     * Development timeline or "making of" content
+   - Filter/category system
+   - Individual game detail pages
+
+3. ABOUT US PAGE
+   - Company history and story
+   - Team member profiles
+   - Company values and mission
+   - Development philosophy
+   - Studio photos/behind-the-scenes content
+
+4. NEWS/BLOG SECTION
+   - Development updates
+   - Game release announcements
+   - Industry insights
+   - Community highlights
+   - Dev logs for your 2D RPG
+
+5. CONTACT PAGE
+   - Contact form
+   - Email addresses
+   - Social media links
+   - Business inquiries section
+   - Press kit download (optional)
+
+6. CAREERS PAGE (Optional but recommended)
+   - Open positions
+   - Company culture
+   - Benefits
+   - Application process
+
+Additional Interactive Elements:
+
+- Navigation menu (sticky header)
+- Footer with links and social media
+- Newsletter signup
+- Game trailer videos
+- Interactive character showcase (could use WASD movement here!)
+- Achievement/badge system (gamification)
+- Dark/light theme toggle
+- Language selector (if targeting international audience)
+
+
+PART 2: WASD MOVEMENT INVESTIGATION
+================================================================================
+
+Overview:
+WASD movement on a website can create an immersive, game-like experience that
+aligns perfectly with a game development company's brand. This feature allows
+users to navigate or interact with elements using keyboard controls instead of
+(or in addition to) traditional mouse scrolling.
+
+Use Cases for WASD Movement:
+
+1. CHARACTER NAVIGATION
+   - Move a character sprite around the page
+   - Navigate between sections by moving to specific areas
+   - Interactive exploration of game assets
+
+2. CAMERA/CANVAS MOVEMENT
+   - Pan around a large game world map
+   - Explore detailed game environments
+   - Navigate through a 2D game level showcase
+
+3. SECTION NAVIGATION
+   - Move between page sections using WASD
+   - Smooth transitions between content areas
+   - Alternative to scroll-based navigation
+
+4. INTERACTIVE DEMOS
+   - Playable mini-games embedded in the site
+   - Character movement in showcase areas
+   - Interactive portfolio presentations
+
+Implementation Approaches:
+
+APPROACH 1: Vanilla JavaScript + CSS
+------------------------------------
+- Pros: No dependencies, full control, lightweight
+- Cons: More manual work, need to handle edge cases
+- Best for: Simple sprite movement, basic interactions
+
+APPROACH 2: React Hooks (Custom or Library)
+--------------------------------------------
+- Pros: React-native, reusable, state management
+- Cons: Requires React knowledge
+- Best for: Component-based movement, React/Next.js projects
+
+APPROACH 3: Canvas API (HTML5)
+------------------------------
+- Pros: High performance, pixel-level control, game-like feel
+- Cons: More complex, requires canvas knowledge
+- Best for: Game-like experiences, complex animations
+
+APPROACH 4: Game Engine Libraries
+---------------------------------
+- Pros: Full game engine features, physics, collision detection
+- Cons: Heavier, might be overkill for simple movement
+- Best for: Complex interactive experiences, actual mini-games
+
+
+PART 3: DEPENDENCY SUGGESTIONS
+================================================================================
+
+Core Dependencies (Already Installed):
+- Next.js 16.0.3 ✓
+- React 19.2.0 ✓
+- TypeScript ✓
+- Tailwind CSS ✓
+
+Recommended Dependencies for WASD Movement:
+
+1. KEYBOARD EVENT HANDLING
+   ------------------------
+   react-use (npm: react-use)
+   - Provides useKeyboard hook for keyboard event handling
+   - Lightweight and well-maintained
+   - Installation: npm install react-use
+   - Usage: Clean hook-based API for keyboard events
+
+   OR
+
+   use-keyboard-shortcut (npm: use-keyboard-shortcut)
+   - Specialized for keyboard shortcuts
+   - Simple API
+   - Installation: npm install use-keyboard-shortcut
+
+2. ANIMATION & SMOOTH MOVEMENT
+   ----------------------------
+   framer-motion (npm: framer-motion)
+   - Excellent for smooth animations and transitions
+   - React-friendly, declarative API
+   - Great for character movement, page transitions
+   - Installation: npm install framer-motion
+   - Features: Spring animations, gesture support, layout animations
+
+   OR
+
+   react-spring (npm: react-spring)
+   - Physics-based animations
+   - Smooth, natural movement
+   - Installation: npm install react-spring
+
+3. GAME-LIKE INTERACTIONS (Optional, for advanced features)
+   ---------------------------------------------------------
+   @react-three/fiber (npm: @react-three/fiber)
+   - React renderer for Three.js
+   - For 3D game-like experiences
+   - Installation: npm install @react-three/fiber three
+   - Note: Might be overkill unless you want 3D elements
+
+   Phaser (npm: phaser)
+   - Full 2D game framework
+   - Perfect for 2D RPG showcase
+   - Installation: npm install phaser
+   - Note: Heavy, use only if embedding actual game demos
+
+
+PART 3.5: THREE.JS ANALYSIS - SHOULD YOU USE IT?
+================================================================================
+
+WHAT IS THREE.JS?
+-----------------
+Three.js is a powerful JavaScript library for creating 3D graphics in the browser
+using WebGL. It's primarily designed for 3D scenes, models, lighting, cameras,
+and 3D animations.
+
+SHOULD YOU USE THREE.JS FOR YOUR 2D RPG WEBSITE?
+-------------------------------------------------
+
+SHORT ANSWER: Probably NOT for the core WASD movement, but MAYBE for special effects.
+
+DETAILED ANALYSIS:
+
+❌ NOT RECOMMENDED FOR:
+-----------------------
+1. Basic WASD Movement (2D)
+   - Three.js is 3D-focused; using it for 2D is like using a sledgehammer to
+     crack a nut
+   - Overhead: ~500KB+ bundle size just for 3D rendering you won't use
+   - Complexity: Steeper learning curve for something simple
+   - Performance: Unnecessary GPU usage for 2D movement
+
+2. Simple Character Sprite Movement
+   - CSS transforms or Canvas 2D are more appropriate
+   - Framer Motion + React hooks will be lighter and easier
+
+3. Standard Website Navigation
+   - Traditional approaches are better for accessibility and SEO
+
+✅ CONSIDER THREE.JS IF YOU WANT:
+---------------------------------
+1. 3D Showcase Elements
+   - Rotating 3D models of game characters
+   - 3D environment previews
+   - Interactive 3D game world exploration
+   - 3D logo animations
+
+2. Parallax/Depth Effects
+   - 3D parallax scrolling
+   - Layered depth effects
+   - Camera movements through 3D space
+
+3. Special Interactive Sections
+   - 3D portfolio gallery
+   - 3D game asset viewer
+   - Immersive 3D backgrounds
+
+4. Future-Proofing
+   - If you plan to develop 3D games later
+   - If you want to showcase 3D capabilities
+
+HYBRID APPROACH (RECOMMENDED):
+------------------------------
+Use the RIGHT tool for each job:
+
+1. WASD Movement (2D): 
+   → react-use + framer-motion (lightweight, perfect for 2D)
+
+2. 2D Game Demos:
+   → Phaser or Canvas API (designed for 2D games)
+
+3. 3D Showcase Elements (optional):
+   → @react-three/fiber + three.js (only where needed)
+
+PERFORMANCE COMPARISON:
+-----------------------
+Bundle Size Impact:
+- react-use: ~5KB
+- framer-motion: ~50KB
+- @react-three/fiber + three: ~500KB+
+
+For a 2D RPG website, adding Three.js just for WASD movement would:
+- Increase bundle size by ~10x
+- Add unnecessary complexity
+- Potentially hurt mobile performance
+- Not provide any benefits over simpler solutions
+
+RECOMMENDATION FOR YOUR PROJECT:
+---------------------------------
+✅ DO USE:
+- react-use + framer-motion for WASD movement
+- Canvas API or Phaser if embedding actual 2D game demos
+
+❌ DON'T USE Three.js for:
+- Basic WASD character movement
+- Simple 2D sprite animations
+- Standard website interactions
+
+🤔 CONSIDER Three.js ONLY if:
+- You want to add 3D character model viewers
+- You plan to showcase 3D game projects
+- You want impressive 3D background effects
+- You're willing to invest time learning 3D concepts
+
+ALTERNATIVE: Start Simple, Scale Up
+------------------------------------
+1. Phase 1: Build with react-use + framer-motion (lightweight, fast)
+2. Phase 2: Add Phaser if you want embedded 2D game demos
+3. Phase 3: Add Three.js ONLY if you need specific 3D features
+
+This approach:
+- Keeps initial bundle size small
+- Faster development
+- Better performance
+- Easier to maintain
+- You can always add Three.js later if needed
+
+INSTALLATION (if you decide to use it):
+----------------------------------------
+npm install @react-three/fiber @react-three/drei three
+
+Note: @react-three/drei provides helpful utilities and helpers for React Three Fiber
+
+4. CANVAS MANIPULATION (If using Canvas approach)
+   -----------------------------------------------
+   react-konva (npm: react-konva)
+   - React wrapper for Konva.js (2D canvas library)
+   - Good for sprite-based movement
+   - Installation: npm install react-konva konva
+
+5. UTILITY LIBRARIES
+   ------------------
+   zustand (npm: zustand)
+   - Lightweight state management
+   - Useful for managing movement state globally
+   - Installation: npm install zustand
+
+   clsx (npm: clsx)
+   - Conditional className utility
+   - Already commonly used with Tailwind
+   - Installation: npm install clsx
+
+Recommended Package Installation Command:
+-----------------------------------------
+npm install react-use framer-motion zustand clsx
+
+For Canvas-based approach (optional):
+npm install react-konva konva
+
+For game engine approach (optional, heavy):
+npm install phaser
+
+
+PART 4: IMPLEMENTATION RECOMMENDATIONS
+================================================================================
+
+Recommended Stack for WASD Movement:
+
+PRIMARY RECOMMENDATION:
+- react-use (for keyboard handling)
+- framer-motion (for smooth animations)
+- Custom React hooks for movement logic
+
+Why This Combination:
+1. Lightweight and performant
+2. React/Next.js native
+3. Easy to implement and maintain
+4. Smooth animations out of the box
+5. Good TypeScript support
+
+Implementation Strategy:
+
+1. Create a custom hook (useWASD.ts):
+   - Use react-use's useKeyboard hook
+   - Track W, A, S, D key states
+   - Return movement direction and velocity
+   - Handle key combinations (diagonal movement)
+
+2. Create a Movement Component:
+   - Use framer-motion for animated movement
+   - Accept position props from WASD hook
+   - Smooth transitions between positions
+   - Boundary detection (prevent moving off-screen)
+
+3. Integration Points:
+   - Character sprite on homepage
+   - Interactive game showcase area
+   - Navigation alternative to scrolling
+   - Portfolio exploration mode
+
+Accessibility Considerations:
+- Provide fallback to mouse/touch controls
+- Ensure keyboard navigation doesn't interfere with screen readers
+- Add toggle to enable/disable WASD movement
+- Show visual indicators when WASD mode is active
+
+
+PART 5: ADDITIONAL SUGGESTIONS
+================================================================================
+
+Visual Design Elements:
+- Pixel art style (if matching your 2D RPG aesthetic)
+- Animated backgrounds
+- Parallax scrolling effects
+- Particle effects
+- Game UI-inspired navigation elements
+
+Performance Considerations:
+- Lazy load game assets
+- Optimize images (WebP format)
+- Code splitting for different sections
+- Consider using Next.js Image component
+- Implement virtual scrolling for large game lists
+
+SEO & Marketing:
+- Meta tags for each game
+- Open Graph images for social sharing
+- Structured data (JSON-LD) for games
+- Blog/Dev log for content marketing
+- Analytics integration (Google Analytics, etc.)
+
+Technical Enhancements:
+- PWA capabilities (offline support)
+- Dark mode (already have Tailwind, easy to implement)
+- Responsive design (mobile-friendly)
+- Fast loading times
+- Smooth page transitions
+
+
+PART 6: EXAMPLE IMPLEMENTATION STRUCTURE
+================================================================================
+
+Suggested File Structure (for reference):
+
+app/
+  ├── page.tsx (Homepage with WASD character)
+  ├── games/
+  │   ├── page.tsx (Games portfolio)
+  │   └── [slug]/
+  │       └── page.tsx (Individual game page)
+  ├── about/
+  │   └── page.tsx
+  ├── news/
+  │   └── page.tsx
+  ├── contact/
+  │   └── page.tsx
+  └── components/
+      ├── Character.tsx (WASD-controlled character)
+      ├── useWASD.ts (Custom hook)
+      ├── GameCard.tsx
+      ├── Navigation.tsx
+      └── Footer.tsx
+
+hooks/
+  └── useWASD.ts (Keyboard movement logic)
+
+lib/
+  └── utils.ts (Helper functions)
+
+
+PART 7: NEXT STEPS
+================================================================================
+
+1. Review this document and decide on:
+   - Which WASD approach fits your vision
+   - Which dependencies to install
+   - Which website elements are priority
+
+2. Design mockups/wireframes for:
+   - Homepage layout
+   - Games showcase
+   - Character movement areas
+
+3. Install chosen dependencies
+
+4. Implement WASD movement hook
+
+5. Build out website sections incrementally
+
+6. Test on multiple devices and browsers
+
+7. Optimize performance
+
+8. Deploy and iterate based on feedback
+
+
+================================================================================
+END OF DOCUMENT
+================================================================================
+
+Notes:
+- This document is a planning/research document only
+- No code changes have been made to your project
+- All suggestions are recommendations - adapt based on your needs
+- Consider your target audience when implementing WASD movement
+- Ensure accessibility is maintained alongside interactive features
+
