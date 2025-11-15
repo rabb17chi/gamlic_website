@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const NavHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,6 +26,9 @@ const NavHeader = () => {
     { href: "/contact", label: "Contact" },
   ];
 
+  const logo_black = "/assets/logo/logo_black.png";
+  const logo_white = "/assets/logo/logo_white.png";
+
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -43,16 +47,15 @@ const NavHeader = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
-          <Link
-            href="/"
-            className="flex items-center space-x-2 group transition-transform hover:scale-105"
-          >
-            <div className="text-2xl md:text-3xl font-bold bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              GAMLIC
-            </div>
-            <span className="text-xs text-zinc-400 hidden sm:inline">
-              Game Studio
-            </span>
+          <Link href="/" className="flex items-center space-x-2 group">
+            <Image
+              src={logo_white}
+              height={50}
+              width={50}
+              alt="GAMLIC Logo"
+              className="object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
