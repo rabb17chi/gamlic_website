@@ -140,7 +140,7 @@ const MobileNavigationMenu = ({
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden absolute top-full left-0 right-0 bg-dark dark:bg-light backdrop-b-blur-md py-5 animate-[slideDown_0.3s_ease-out] transition-all duration-500">
+    <div className="md:hidden absolute top-full left-0 right-0 bg-dark dark:bg-light py-5 animate-[slideDown_0.3s_ease-out] transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex flex-col space-y-4 text-center">
           {navLinks.map((link) => (
@@ -164,15 +164,8 @@ const MobileNavigationMenu = ({
 };
 
 const NavHeader = () => {
-  const [notAtTop, setNotAtTop] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  // Scroll handler function
-  const handleScroll = () => {
-    setNotAtTop(window.scrollY > 20);
-  };
 
   // Initialize theme on mount
   const initializeTheme = () => {
@@ -190,11 +183,6 @@ const NavHeader = () => {
       console.log("Theme on site entry: light");
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     initializeTheme();
@@ -230,16 +218,18 @@ const NavHeader = () => {
 
   return (
     <nav
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`sticky md:fixed top-0 left-0 right-0 transition-colors duration-500  ${
+      className={`fixed top-0 left-0 right-0 transition-colors duration-500  ${
         isMobileMenuOpen
           ? "z-60 bg-dark dark:bg-light"
           : "z-50 bg-light dark:bg-dark"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 pb-4 md:pt-0 md:pb-0 relative">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div
+          className={`flex items-center justify-between h-16 md:h-20 
+          ${isMobileMenuOpen ? "backdrop-blur-none" : "backdrop-blur-lg"}
+          `}
+        >
           {/* Logo */}
           <Logo isMenuOpen={isMobileMenuOpen} />
 
