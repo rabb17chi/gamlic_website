@@ -1,11 +1,33 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme Color Constants */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme Colors */
+  --color-light: #ffffff;
+  --color-dark: #1e1e1e;
+
+  /* Test Color - Red + Green Mix (Orange) */
+  --color-test: #ff80ee;
+
+  /* Default to light theme */
+  --background: var(--color-light);
+  --foreground: var(--color-dark);
 }
 
 @theme inline {
+  /* Register theme colors for Tailwind use */
+  --color-theme-light: var(--color-light);
+  --color-theme-dark: var(--color-dark);
+  --color-theme-test: var(--color-test);
+
+  /* Register base colors for direct use */
+  --color-light: var(--color-light);
+  --color-dark: var(--color-dark);
+  --color-test: var(--color-test);
+
+  /* Background and foreground */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -14,13 +36,30 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-dark);
+    --foreground: var(--color-light);
   }
+}
+
+.dark {
+  --background: var(--color-dark);
+  --foreground: var(--color-light);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

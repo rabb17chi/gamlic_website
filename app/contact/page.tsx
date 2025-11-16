@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black pt-20">
+    <div className="min-h-screen pt-20">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
         
@@ -15,7 +15,7 @@ export default function Contact() {
             </p>
           </section>
 
-          <div className="bg-zinc-800 rounded-lg p-6 space-y-4">
+          <div className="rounded-lg p-6 space-y-4">
             <div>
               <h3 className="font-semibold text-zinc-200 mb-2">Email</h3>
               <p className="text-zinc-400">contact@gamlic.com</p>
@@ -28,7 +28,7 @@ export default function Contact() {
           </div>
 
           {/* Contact form can be added here later */}
-          <div className="bg-zinc-800 rounded-lg p-6">
+          <div className="rounded-lg p-6">
             <h3 className="text-xl font-semibold mb-4 text-zinc-200">
               Send us a Message
             </h3>
