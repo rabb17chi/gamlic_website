@@ -140,22 +140,24 @@ const MobileNavigationMenu = ({
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden my-5 py-2 animate-[slideDown_0.8s_ease-out]">
-      <div className="flex flex-col space-y-4 text-center">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={() => onToggle()}
-            className={`py-1 rounded-lg font-medium uppercase transition-all ${
-              isActive(link.href)
-                ? "text-yellow-400 dark:text-yellow-500 text-3xl"
-                : "text-zinc-300 dark:text-zinc-600"
-            }`}
-          >
-            {link.label}
-          </Link>
-        ))}
+    <div className="md:hidden absolute top-full left-0 right-0 bg-dark dark:bg-light backdrop-b-blur-md py-5 animate-[slideDown_0.3s_ease-out] transition-all duration-500">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="flex flex-col space-y-4 text-center">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => onToggle()}
+              className={`py-1 rounded-lg font-medium uppercase transition-all ${
+                isActive(link.href)
+                  ? "text-yellow-400 dark:text-yellow-500 text-3xl"
+                  : "text-zinc-300 dark:text-zinc-600"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -230,15 +232,13 @@ const NavHeader = () => {
     <nav
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`sticky md:fixed top-0 left-0 right-0 z-50 transition-colors duration-500 border-b border-dark/20 dark:border-light/20 md:border-b-0 shadow-md md:shadow-none ${
-        notAtTop || (isHovered && notAtTop)
-          ? "backdrop-blur-md md:shadow-lg md:border-b border-zinc-800"
-          : isMobileMenuOpen
-          ? "bg-dark/95 dark:bg-light/90 backdrop-blur-md md:shadow-lg"
-          : "bg-light dark:bg-dark"
+      className={`sticky md:fixed top-0 left-0 right-0 transition-colors duration-500  ${
+        isMobileMenuOpen
+          ? "z-60 bg-dark dark:bg-light"
+          : "z-50 bg-light dark:bg-dark"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 pb-4 md:pt-0 md:pb-0">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 pb-4 md:pt-0 md:pb-0 relative">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Logo isMenuOpen={isMobileMenuOpen} />
