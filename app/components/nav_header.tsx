@@ -226,9 +226,9 @@ const NavHeader = () => {
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 pb-4 md:pt-0 md:pb-0 relative">
         <div
-          className={`flex items-center justify-between h-16 md:h-20 
-          ${isMobileMenuOpen ? "backdrop-blur-none" : "backdrop-blur-lg"}
-          `}
+          className={`flex items-center justify-between h-16 md:h-20 ${
+            isMobileMenuOpen ? "backdrop-blur-none" : "backdrop-blur-lg"
+          }`}
         >
           {/* Logo */}
           <Logo isMenuOpen={isMobileMenuOpen} />
