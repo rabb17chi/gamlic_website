@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 // Logo Component
@@ -11,7 +10,17 @@ const Logo = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
   const logo_white = "/assets/logo/logo_white_01.png";
 
   return (
-    <Link href="/" className="flex items-center space-x-2 group relative">
+    <Link
+      href="#Intro"
+      className="flex items-center space-x-2 group relative"
+      onClick={(e) => {
+        e.preventDefault();
+        const element = document.querySelector("#Intro");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }}
+    >
       <Image
         src={logo_black}
         height={50}
@@ -147,7 +156,17 @@ const MobileNavigationMenu = ({
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => onToggle()}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector(link.href);
+                if (element) {
+                  element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+                onToggle();
+              }}
               className={`py-1 rounded-lg font-medium uppercase transition-all ${
                 isActive(link.href)
                   ? "text-yellow-400 dark:text-yellow-500 text-3xl"
@@ -165,7 +184,7 @@ const MobileNavigationMenu = ({
 
 const NavHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [currentHash, setCurrentHash] = useState("");
 
   // Initialize theme on mount
   const initializeTheme = () => {
@@ -184,8 +203,23 @@ const NavHeader = () => {
     }
   };
 
+  // Handle hash changes for active state
   useEffect(() => {
     initializeTheme();
+
+    // Set initial hash
+    setCurrentHash(window.location.hash);
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -203,17 +237,23 @@ const NavHeader = () => {
   };
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/games", label: "Games" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "#Intro", label: "Home" },
+    { href: "#Products", label: "Games" },
+    { href: "#About", label: "About" },
+    { href: "#Contact", label: "Contact" },
   ];
 
   const isActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
+    // Remove # from href for comparison
+    const hrefId = href.replace("#", "");
+    const currentHashId = currentHash.replace("#", "");
+
+    // For Home/Intro, check if hash is empty or matches Intro
+    if (href === "#Intro") {
+      return currentHash === "" || currentHashId === "Intro";
     }
-    return pathname?.startsWith(href);
+
+    return currentHashId === hrefId;
   };
 
   return (
@@ -239,6 +279,16 @@ const NavHeader = () => {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(link.href);
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                }}
                 className={`px-4 py-2 text-sm font-medium ${
                   isActive(link.href)
                     ? "border-b-2 border-dark dark:border-light text-dark dark:text-light"

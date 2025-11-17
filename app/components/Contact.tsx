@@ -1,9 +1,12 @@
 export default function Contact() {
   return (
-    <div className="min-h-screen pt-20">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div
+      className="min-h-svh border border-pink-300 w-full  flex flex-col justify-center items-center"
+      id="Contact"
+    >
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-        
+
         <div className="space-y-8">
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100">
@@ -20,9 +23,11 @@ export default function Contact() {
               <h3 className="font-semibold text-zinc-200 mb-2">Email</h3>
               <p className="text-zinc-400">contact@gamlic.com</p>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-zinc-200 mb-2">Business Inquiries</h3>
+              <h3 className="font-semibold text-zinc-200 mb-2">
+                Business Inquiries
+              </h3>
               <p className="text-zinc-400">business@gamlic.com</p>
             </div>
           </div>
@@ -32,13 +37,10 @@ export default function Contact() {
             <h3 className="text-xl font-semibold mb-4 text-zinc-200">
               Send us a Message
             </h3>
-            <p className="text-zinc-400">
-              Contact form coming soon...
-            </p>
+            <p className="text-zinc-400">Contact form coming soon...</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
-

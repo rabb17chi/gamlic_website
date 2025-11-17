@@ -1,14 +1,15 @@
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Intro from "./components/Intro";
+import Products from "./components/Products";
+
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center font-sans bg-light dark:bg-dark transition-colors duration-500">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 text-dark dark:text-light">
-          Welcome to GAMLIC
-        </h1>
-        <p className="text-zinc-600 dark:text-zinc-400">
-          Game Development Studio
-        </p>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-svh max-w-7xl w-full mx-auto font-sans bg-transparent transition-colors duration-500">
+      <Intro />
+      <Products />
+      <About />
+      <Contact />
     </div>
   );
 }
