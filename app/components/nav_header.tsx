@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+const SECTION_IDS = ["Intro", "Products", "About", "Contact"];
 
 // Logo Component
 const Logo = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
@@ -140,11 +142,13 @@ const MobileNavigationMenu = ({
   onToggle,
   navLinks,
   isActive,
+  onNavigate,
 }: {
   isOpen: boolean;
   onToggle: () => void;
   navLinks: Array<{ href: string; label: string }>;
   isActive: (href: string) => boolean;
+  onNavigate: (href: string) => void;
 }) => {
   if (!isOpen) return null;
 
@@ -165,6 +169,7 @@ const MobileNavigationMenu = ({
                     block: "start",
                   });
                 }
+                onNavigate(link.href);
                 onToggle();
               }}
               className={`py-1 rounded-lg font-medium uppercase transition-all ${
@@ -184,7 +189,9 @@ const MobileNavigationMenu = ({
 
 const NavHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentHash, setCurrentHash] = useState("");
+  const [currentHash, setCurrentHash] = useState("#Intro");
+  const isNavigatingRef = useRef(false);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Initialize theme on mount
   const initializeTheme = () => {
@@ -207,12 +214,12 @@ const NavHeader = () => {
   useEffect(() => {
     initializeTheme();
 
-    // Set initial hash
-    setCurrentHash(window.location.hash);
+    const initialHash = window.location.hash || "#Intro";
+    setCurrentHash(initialHash);
 
     // Listen for hash changes
     const handleHashChange = () => {
-      setCurrentHash(window.location.hash);
+      setCurrentHash(window.location.hash || "#Intro");
     };
 
     window.addEventListener("hashchange", handleHashChange);
@@ -221,6 +228,53 @@ const NavHeader = () => {
       window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!isNavigatingRef.current && entry.isIntersecting) {
+            const newHash = `#${entry.target.id}`;
+            setCurrentHash((prev) => (prev !== newHash ? newHash : prev));
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    SECTION_IDS.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleNavigate = (href: string) => {
+    setCurrentHash(href);
+    isNavigatingRef.current = true;
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 800);
+  };
 
   const toggleTheme = () => {
     const isCurrentlyDark = document.documentElement.classList.contains("dark");
@@ -288,6 +342,7 @@ const NavHeader = () => {
                       block: "start",
                     });
                   }
+                  handleNavigate(link.href);
                 }}
                 className={`px-4 py-2 text-sm font-medium ${
                   isActive(link.href)
@@ -320,6 +375,7 @@ const NavHeader = () => {
           onToggle={() => setIsMobileMenuOpen(false)}
           navLinks={navLinks}
           isActive={isActive}
+          onNavigate={handleNavigate}
         />
       </div>
     </nav>

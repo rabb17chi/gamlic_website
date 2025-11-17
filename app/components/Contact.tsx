@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     <div
-      className="min-h-svh border border-pink-300 w-full  flex flex-col justify-center items-center"
+      className="min-h-svh w-full flex flex-col justify-center items-center"
       id="Contact"
     >
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">

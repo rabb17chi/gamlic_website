@@ -1,7 +1,7 @@
 export default function Products() {
   return (
     <div
-      className="min-h-svh border border-yellow-300 w-full flex flex-col justify-center items-center"
+      className="min-h-svh w-full flex flex-col justify-center items-center"
       id="Products"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
