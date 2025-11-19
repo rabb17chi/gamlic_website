@@ -175,7 +175,7 @@ const MobileNavigationMenu = ({
               className={`py-1 rounded-lg font-medium uppercase transition-all ${
                 isActive(link.href)
                   ? "text-yellow-400 dark:text-yellow-500 text-3xl"
-                  : "text-zinc-300 dark:text-zinc-600"
+                  : "text-light dark:text-dark"
               }`}
             >
               {link.label}
@@ -194,25 +194,24 @@ const NavHeader = () => {
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Initialize theme on mount
-  const initializeTheme = () => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-
-    if (shouldBeDark) {
-      document.documentElement.classList.add("dark");
-      console.log("Theme on site entry: dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      console.log("Theme on site entry: light");
-    }
-  };
+  // const initializeTheme = () => {
+  // const savedTheme = localStorage.getItem("theme");
+  // const prefersDark = window.matchMedia(
+  //   "(prefers-color-scheme: dark)"
+  // ).matches;
+  // const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+  // if (shouldBeDark) {
+  //   document.documentElement.classList.add("dark");
+  //   console.log("Theme on site entry: dark");
+  // } else {
+  //   document.documentElement.classList.remove("dark");
+  //   console.log("Theme on site entry: light");
+  // }
+  // };
 
   // Handle hash changes for active state
   useEffect(() => {
-    initializeTheme();
+    // initializeTheme();
 
     const initialHash = window.location.hash || "#Intro";
     setCurrentHash(initialHash);
@@ -282,11 +281,11 @@ const NavHeader = () => {
     if (isCurrentlyDark) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      console.log("Theme toggled to: light");
+      // console.log("Theme toggled to: light");
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      console.log("Theme toggled to: dark");
+      // console.log("Theme toggled to: dark");
     }
   };
 

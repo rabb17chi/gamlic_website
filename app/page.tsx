@@ -6,7 +6,7 @@ import Products from "./components/Products";
 
 export default function Home() {
   return (
-    <div className="h-svh snap-y snap-mandatory overflow-y-scroll">
+    <div className="h-svh snap-y snap-mandatory overflow-y-scroll css-scrollbar-hide">
       <div className="flex flex-col items-center justify-center min-h-svh max-w-7xl w-full mx-auto font-sans bg-transparent transition-colors duration-500">
         <div className="w-full snap-start snap-always">
           <Intro />

@@ -41,11 +41,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="transition-colors duration-500">
         <NavHeader />
-        <main className="bg-light dark:bg-dark transition-colors duration-500">
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );

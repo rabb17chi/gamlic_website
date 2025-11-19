@@ -6,7 +6,7 @@ export default function Products() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Games</h1>
-        <p className="text-dark dark:text-light text-lg mb-8">
+        <p className="text-lg mb-8">
           Explore our collection of games
         </p>
 

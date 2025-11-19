@@ -9,10 +9,10 @@ export default function Contact() {
 
         <div className="space-y-8">
           <section>
-            <h2 className="text-2xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100">
+            <h2 className="text-2xl font-semibold mb-4">
               Get in Touch
             </h2>
-            <p className="text-dark dark:text-light mb-6">
+            <p className="mb-6">
               Have a question, collaboration idea, or just want to say hello?
               We'd love to hear from you!
             </p>
