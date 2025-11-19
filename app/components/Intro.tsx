@@ -2,10 +2,7 @@ import React from "react";
 
 const Intro = () => {
   return (
-    <div
-      className="min-h-svh w-full flex flex-col justify-center items-center"
-      id="Intro"
-    >
+    <div className="min-h-svh w-full flex flex-col py-20" id="Intro">
       <h1 className="text-4xl font-bold mb-4 duration-500 transition-colors">
         Welcome to GAMLIC
       </h1>

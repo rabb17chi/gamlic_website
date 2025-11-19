@@ -2,10 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div
-      className="flex flex-col justify-center items-center w-full min-h-svh"
-      id="About"
-    >
+    <div className="flex flex-col w-full min-h-svh py-20" id="About">
       <span>About</span>
     </div>
   );

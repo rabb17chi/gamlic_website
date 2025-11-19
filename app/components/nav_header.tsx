@@ -313,15 +313,13 @@ const NavHeader = () => {
     <nav
       className={`fixed top-0 left-0 right-0 transition-colors duration-500  ${
         isMobileMenuOpen
-          ? "z-60 bg-dark dark:bg-light"
-          : "z-50 bg-light dark:bg-dark"
+          ? "z-60 bg-dark dark:bg-light backdrop-blur-none"
+          : "z-50 bg-transparent dark:bg-transparent backdrop-blur-lg"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 pb-4 md:pt-0 md:pb-0 relative">
+      <div className=" w-full mx-auto px-4 lg:px-8 pt-2 pb-2 md:pt-0 md:pb-0 relative">
         <div
-          className={`flex items-center justify-between h-16 md:h-20 ${
-            isMobileMenuOpen ? "backdrop-blur-none" : "backdrop-blur-lg"
-          }`}
+          className={`max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20`}
         >
           {/* Logo */}
           <Logo isMenuOpen={isMobileMenuOpen} />
