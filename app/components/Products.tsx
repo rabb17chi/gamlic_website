@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const STEAM_STORE_URL =
+  "https://store.steampowered.com/app/3895050/Chronia_The_Rotcore/";
+
 export default function Products() {
   return (
     <div className="min-h-svh w-full py-20" id="Products">
@@ -34,8 +37,29 @@ export default function Products() {
                   own journey.
                 </p>
               </div>
-              <div id="game-tags">2d,rpg</div>
-              <div id="game-links">steam</div>
+              <ul
+                id="game-tags"
+                className="flex flex-wrap gap-x-2 gap-y-2 my-2"
+              >
+                {["2d", "rpg"].map((tag, index) => (
+                  <li
+                    key={index}
+                    className="rounded-2xl bg-dark/10 dark:bg-light/10 px-3 py-1 text-xs uppercase"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+              <div id="game-links">
+                <Link
+                  href={STEAM_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:underline"
+                >
+                  Steam
+                </Link>
+              </div>
             </div>
           </div>
         </div>
