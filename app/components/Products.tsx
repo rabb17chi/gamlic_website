@@ -27,20 +27,20 @@ export default function Products() {
             </div>
             <div id="game-info" className="px-6">
               <div>
-                <p className="text-zinc-400" id="game-name">
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 bg-linear-to-r from-dark dark:from-light to-gray-600 dark:to-gray-400 bg-clip-text text-transparent"
+                  id="game-name"
+                >
                   Chronia: The Rotcore
-                </p>
-                <p id="game-description" className="text-sm">
-                  Our first game! You are a newbie mercenary, travelling across
-                  the land to find your origin. Part with teams, slaying
-                  monsters, achieving quests... It is your choice to shape your
-                  own journey.
+                </h2>
+                <p id="game-description" className="text-sm leading-tight">
+                  A turn-based RPG set in the fantasy land of Tinotella. Play as
+                  a mercenary traveling across war-torn kingdoms to discover
+                  your origin. Customize your character, engage in tactical
+                  combat, and shape your own journey.
                 </p>
               </div>
-              <ul
-                id="game-tags"
-                className="flex flex-wrap gap-x-2 gap-y-2 my-2"
-              >
+              <ul id="game-tags" className="flex flex-wrap gap-x-2 my-3">
                 {["2d", "rpg"].map((tag, index) => (
                   <li
                     key={index}
@@ -50,12 +50,15 @@ export default function Products() {
                   </li>
                 ))}
               </ul>
-              <div id="game-links">
+              <div
+                id="game-links"
+                className="border text-center p-5 my-2 rounded-3xl"
+              >
                 <Link
                   href={STEAM_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:underline"
+                  className="text-lg hover:underline w-full uppercase"
                 >
                   Steam
                 </Link>
