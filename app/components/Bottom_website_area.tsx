@@ -14,9 +14,9 @@ const resourceLinks = [
 ];
 
 const socialLinks = [
-  { label: "Twitter / X", href: "https://twitter.com" },
-  { label: "Discord", href: "https://discord.com" },
-  { label: "YouTube", href: "https://youtube.com" },
+  // { label: "Twitter / X", href: "https://twitter.com" },
+  // { label: "Discord", href: "https://discord.com" },
+  { label: "Instagram", href: "https://www.instagram.com/gamlic_studio" },
 ];
 
 const BottomWebsiteArea = () => {
@@ -85,7 +85,7 @@ const BottomWebsiteArea = () => {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="transition-colors duration-200 hover:text-theme-test focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-test/60"
+                    className="transition-colors duration-200 hover:text-theme-test focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-test/60 tracking-wider"
                   >
                     {link.label}
                   </Link>

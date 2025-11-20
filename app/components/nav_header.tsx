@@ -62,7 +62,7 @@ const ThemeToggle = ({
   return (
     <button
       onClick={onToggle}
-      className="p-2.5 rounded-lg transition-colors duration-500 md:hover:bg-gray-200 md:dark:hover:bg-gray-700 relative"
+      className="p-2.5 rounded-lg transition-colors duration-300 md:hover:bg-gray-200 md:dark:hover:bg-gray-700 relative"
       aria-label="Toggle theme"
     >
       {/* Moon icon - shown in dark mode */}
