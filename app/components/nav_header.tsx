@@ -14,7 +14,7 @@ const Logo = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
   return (
     <Link
       href="#Intro"
-      className="flex items-center space-x-2 group relative"
+      className="flex items-center group relative"
       onClick={(e) => {
         e.preventDefault();
         const element = document.querySelector("#Intro");
@@ -28,7 +28,7 @@ const Logo = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         height={50}
         width={50}
         alt="GAMLIC Logo"
-        className={`object-contain transition-opacity duration-500 ${
+        className={`py-2 object-contain transition-opacity duration-500 ${
           isMenuOpen
             ? "opacity-0 dark:opacity-100"
             : "opacity-100 dark:opacity-0"
@@ -62,12 +62,12 @@ const ThemeToggle = ({
   return (
     <button
       onClick={onToggle}
-      className="p-2 rounded-lg transition-colors md:hover:bg-gray-200 md:dark:hover:bg-gray-700 relative"
+      className="p-2.5 rounded-lg transition-colors duration-500 md:hover:bg-gray-200 md:dark:hover:bg-gray-700 relative"
       aria-label="Toggle theme"
     >
       {/* Moon icon - shown in dark mode */}
       <svg
-        className={`w-7.5 h-7.5 absolute transition-opacity duration-500 opacity-0 dark:opacity-100 ${
+        className={`w-7.5 h-7.5 absolute transition-all duration-500 opacity-0 dark:opacity-100 ${
           isMenuOpen ? "text-light dark:text-dark" : "text-light"
         }`}
         fill="none"
@@ -108,7 +108,7 @@ const MobileMenuButton = ({
   return (
     <button
       onClick={onToggle}
-      className={`md:hidden p-2 rounded-lg transition-colors border-2 ${
+      className={`md:hidden p-2 rounded-lg transition-colors duration-500 border-2 ${
         isOpen
           ? "border-light dark:border-dark"
           : "border-dark dark:border-light"
@@ -116,7 +116,7 @@ const MobileMenuButton = ({
       aria-label="Toggle menu"
     >
       <svg
-        className={`w-7.5 h-7.5 ${
+        className={`w-7.5 h-7.5 transition-colors duration-500 ${
           isOpen ? "text-light dark:text-dark" : "text-dark dark:text-light"
         }`}
         fill="none"
@@ -150,10 +150,14 @@ const MobileNavigationMenu = ({
   isActive: (href: string) => boolean;
   onNavigate: (href: string) => void;
 }) => {
-  if (!isOpen) return null;
-
   return (
-    <div className="md:hidden absolute top-full left-0 right-0 bg-dark dark:bg-light py-5 animate-[slideDown_0.3s_ease-out] transition-all duration-500">
+    <div
+      className={`md:hidden absolute top-full left-0 right-0 bg-dark dark:bg-light py-5 transition-all duration-500 ${
+        isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex flex-col space-y-4 text-center">
           {navLinks.map((link) => (
@@ -193,26 +197,8 @@ const NavHeader = () => {
   const isNavigatingRef = useRef(false);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Initialize theme on mount
-  // const initializeTheme = () => {
-  // const savedTheme = localStorage.getItem("theme");
-  // const prefersDark = window.matchMedia(
-  //   "(prefers-color-scheme: dark)"
-  // ).matches;
-  // const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-  // if (shouldBeDark) {
-  //   document.documentElement.classList.add("dark");
-  //   console.log("Theme on site entry: dark");
-  // } else {
-  //   document.documentElement.classList.remove("dark");
-  //   console.log("Theme on site entry: light");
-  // }
-  // };
-
   // Handle hash changes for active state
   useEffect(() => {
-    // initializeTheme();
-
     const initialHash = window.location.hash || "#Intro";
     setCurrentHash(initialHash);
 
@@ -321,8 +307,21 @@ const NavHeader = () => {
         <div
           className={`max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20`}
         >
+          {/* Mobile: Toggler */}
+          <div className="md:hidden">
+            <ThemeToggle onToggle={toggleTheme} isMenuOpen={isMobileMenuOpen} />
+          </div>
+
           {/* Logo */}
           <Logo isMenuOpen={isMobileMenuOpen} />
+
+          {/* Mobile: Menu Button */}
+          <div className="md:hidden">
+            <MobileMenuButton
+              isOpen={isMobileMenuOpen}
+              onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
@@ -351,19 +350,6 @@ const NavHeader = () => {
               </Link>
             ))}
             <ThemeToggle onToggle={toggleTheme} />
-          </div>
-
-          {/* Mobile: Toggler */}
-          <div className="md:hidden">
-            <ThemeToggle onToggle={toggleTheme} isMenuOpen={isMobileMenuOpen} />
-          </div>
-
-          {/* Mobile: Menu Button */}
-          <div className="md:hidden">
-            <MobileMenuButton
-              isOpen={isMobileMenuOpen}
-              onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
           </div>
         </div>
 

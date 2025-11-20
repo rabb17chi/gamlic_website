@@ -37,18 +37,6 @@ body {
 /* Text elements inherit color from body by default */
 /* Tailwind utility classes (like .text-light) will override this with higher specificity */
 
-/* Custom animations */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .css-scrollbar-hide {
   /* Hide scrollbar for Chrome, Safari, and Opera */
   -ms-overflow-style: none; /* IE and Edge */
