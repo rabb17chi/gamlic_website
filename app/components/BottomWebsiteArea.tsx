@@ -101,15 +101,15 @@ const BottomWebsiteArea = () => {
             reserved.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/privacy" className="hover:text-theme-test">
+            <Link href="/" className="hover:text-theme-test">
               Privacy
             </Link>
             <span className="text-dark/40 dark:text-light/40">/</span>
-            <Link href="/terms" className="hover:text-theme-test">
+            <Link href="/" className="hover:text-theme-test">
               Terms
             </Link>
             <span className="text-dark/40 dark:text-light/40">/</span>
-            <Link href="/support" className="hover:text-theme-test">
+            <Link href="/" className="hover:text-theme-test">
               Support
             </Link>
           </div>

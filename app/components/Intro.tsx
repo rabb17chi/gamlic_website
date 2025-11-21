@@ -8,10 +8,17 @@ const Intro = () => {
     >
       <div className="w-full text-center">
         <h1 className="text-4xl font-bold duration-500 transition-colors">
-          Welcome to GAMLIC
+          GAMLIC
         </h1>
-        <p className="opacity-70 duration-500 transition-colors">
-          Game Development Studio
+        <p className="text-dark/50 dark:text-light/20">
+          Where{" "}
+          <span className="font-bold text-2xl text-dark dark:text-light">
+            GAM
+          </span>
+          E meets REPUB
+          <span className="font-bold text-2xl text-dark dark:text-light">
+            LIC
+          </span>
         </p>
       </div>
     </div>

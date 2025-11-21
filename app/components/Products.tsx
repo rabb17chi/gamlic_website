@@ -8,27 +8,30 @@ export default function Products() {
   return (
     <div className="min-h-svh w-full py-20" id="Products">
       <div
-        className="max-w-7xl w-full h-full mx-auto py-4 flex justify-center items-center"
+        className="max-w-7xl w-full min-h-[90vh] m-auto py-40 lg:flex justify-center items-center"
         id="card-container"
       >
         <div className="w-full" id="game-info-card">
-          <div className="lg:flex items-center">
+          <div className="lg:flex">
             <div
-              className="h-80 md:h-100 flex justify-center items-end md:items-center py-2"
+              className="md:h-auto flex justify-center items-end md:items-center rounded-2xl overflow-hidden"
               id="game-thumbnail-container"
             >
               <Image
                 src="/assets/game_thumbnail.jpg"
-                width={400}
-                height={250}
+                width={500}
+                height={0}
                 alt="Game Card"
-                className="w-100 lg:w-800 object-contain"
+                className="w-100 md:w-200 lg:w-550"
               />
             </div>
-            <div id="game-info" className="px-6">
-              <div>
+            <div
+              className="mt-5 lg:mt-0 px-3 lg:flex flex-col h-full"
+              id="game-info-container"
+            >
+              <div className="flex-1" id="game-text-decs">
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 bg-linear-to-r from-dark dark:from-light to-gray-600 dark:to-gray-400 bg-clip-text text-transparent"
+                  className="uppercase text-3xl md:text-4xl lg:text-5xl font-bold mb-1 lg:mb-3"
                   id="game-name"
                 >
                   Chronia: The Rotcore
@@ -52,13 +55,13 @@ export default function Products() {
               </ul>
               <div
                 id="game-links"
-                className="border text-center p-5 my-2 rounded-3xl"
+                className="border text-center p-5 my-2 rounded-2xl hover:bg-green-300 transition-all duration-500 hover:cursor-pointer hover:text-black"
               >
                 <Link
                   href={STEAM_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg hover:underline w-full uppercase"
+                  className="text-lg w-full uppercase"
                 >
                   Steam
                 </Link>
