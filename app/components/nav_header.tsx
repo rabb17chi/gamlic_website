@@ -87,12 +87,12 @@ const LanguageSwitcher = ({ isMenuOpen = false }: { isMenuOpen?: boolean }) => {
     <div className="flex items-center space-x-1">
       <button
         onClick={switchLanguage}
-        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+        className={`h-12.5 px-4 py-4 text-sm font-medium rounded-lg transition-colors hover:cursor-pointer md:hover:bg-gray-200 md:dark:hover:bg-gray-700 ${
           isMenuOpen ? "text-light dark:text-dark" : "text-dark dark:text-light"
         }`}
         aria-label={locale === "en" ? "Switch to Chinese" : "Switch to English"}
       >
-        {locale === "en" ? "中文" : "Eng"}
+        {locale === "en" ? "Eng" : "中文"}
       </button>
     </div>
   );
@@ -392,17 +392,20 @@ const NavHeader = () => {
                   }
                   handleNavigate(link.href);
                 }}
-                className={`px-4 py-2 text-sm font-medium ${
+                className={`px-4 py-2 rounded-xl transition-all duration-300 text-dark dark:text-light  ${
                   isActive(link.href)
-                    ? "border-b-2 border-dark dark:border-light text-dark dark:text-light"
-                    : " hover:text-gray-800 dark:hover:text-gray-200 text-gray-400 dark:text-gray-300"
+                    ? "font-bold text-lg"
+                    : "text-sm font-medium hover:text-gray-700 hover:bg-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <LanguageSwitcher />
-            <ThemeToggle onToggle={toggleTheme} />
+            |
+            <div className="h-12.5 ml-2 flex gap-2" id="Utils-area">
+              <ThemeToggle onToggle={toggleTheme} />
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
 

@@ -17,9 +17,9 @@ export default function Home() {
         <div className="w-full snap-start snap-always max-w-7xl ">
           <About />
         </div>
-        <div className="w-full snap-start snap-always max-w-7xl ">
+        {/* <div className="w-full snap-start snap-always max-w-7xl ">
           <Contact />
-        </div>
+        </div> */}
         <div className="w-full snap-start snap-always">
           <BottomWebsiteArea />
         </div>
@@ -27,4 +27,3 @@ export default function Home() {
     </div>
   );
 }
-
