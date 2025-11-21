@@ -1,8 +1,8 @@
-import About from "./components/About";
-import BottomWebsiteArea from "./components/BottomWebsiteArea";
-import Contact from "./components/Contact";
-import Intro from "./components/Intro";
-import Products from "./components/Products";
+import About from "../components/About";
+import BottomWebsiteArea from "../components/BottomWebsiteArea";
+import Contact from "../components/Contact";
+import Intro from "../components/Intro";
+import Products from "../components/Products";
 
 export default function Home() {
   return (
@@ -27,3 +27,4 @@ export default function Home() {
     </div>
   );
 }
+

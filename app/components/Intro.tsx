@@ -1,6 +1,11 @@
+"use client";
+
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const Intro = () => {
+  const t = useTranslations("intro");
+
   return (
     <div
       className="min-h-svh w-full flex flex-col justify-center items-center py-20 px-4 md:px-0"
@@ -8,16 +13,16 @@ const Intro = () => {
     >
       <div className="w-full text-center">
         <h1 className="text-4xl font-bold duration-500 transition-colors">
-          GAMLIC
+          {t("title")}
         </h1>
         <p className="text-dark/50 dark:text-light/20">
           Where{" "}
           <span className="font-bold text-2xl text-dark dark:text-light">
-            GAM
+            {t("game")}
           </span>
-          E meets REPUB
+          {t("e")} meets {t("repub")}
           <span className="font-bold text-2xl text-dark dark:text-light">
-            LIC
+            {t("lic")}
           </span>
         </p>
       </div>

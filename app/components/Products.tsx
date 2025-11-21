@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const STEAM_STORE_URL =
   "https://store.steampowered.com/app/3895050/Chronia_The_Rotcore/";
 
 export default function Products() {
+  const t = useTranslations("products");
+
   return (
     <div className="min-h-svh w-full py-20" id="Products">
       <div
@@ -34,13 +39,10 @@ export default function Products() {
                   className="uppercase text-3xl md:text-4xl lg:text-5xl font-bold mb-1 lg:mb-3"
                   id="game-name"
                 >
-                  Chronia: The Rotcore
+                  {t("gameName")}
                 </h2>
                 <p id="game-description" className="text-sm leading-tight">
-                  A turn-based RPG set in the fantasy land of Tinotella. Play as
-                  a mercenary traveling across war-torn kingdoms to discover
-                  your origin. Customize your character, engage in tactical
-                  combat, and shape your own journey.
+                  {t("gameDescription")}
                 </p>
               </div>
               <ul id="game-tags" className="flex flex-wrap gap-x-2 my-3">
@@ -63,7 +65,7 @@ export default function Products() {
                   rel="noopener noreferrer"
                   className="text-lg w-full uppercase"
                 >
-                  Steam
+                  {t("steam")}
                 </Link>
               </div>
             </div>

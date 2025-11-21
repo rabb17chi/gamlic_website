@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 const SECTION_IDS = ["Intro", "Products", "About", "Contact"];
 
@@ -48,6 +50,51 @@ const Logo = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         priority
       />
     </Link>
+  );
+};
+
+// Language Switcher Component
+const LanguageSwitcher = ({ isMenuOpen = false }: { isMenuOpen?: boolean }) => {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const switchLanguage = () => {
+    // Get the current pathname without locale prefix
+    let currentPath = pathname;
+
+    // Remove /en prefix if it exists
+    if (currentPath.startsWith("/en")) {
+      currentPath = currentPath.slice(3) || "/";
+    }
+
+    // Ensure path starts with /
+    if (!currentPath.startsWith("/")) {
+      currentPath = "/" + currentPath;
+    }
+
+    let targetPath: string;
+    if (locale === "en") {
+      targetPath = currentPath;
+    } else {
+      targetPath = `/en${currentPath}`;
+    }
+
+    window.location.href = targetPath;
+  };
+
+  return (
+    <div className="flex items-center space-x-1">
+      <button
+        onClick={switchLanguage}
+        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+          isMenuOpen ? "text-light dark:text-dark" : "text-dark dark:text-light"
+        }`}
+        aria-label={locale === "en" ? "Switch to Chinese" : "Switch to English"}
+      >
+        {locale === "en" ? "中文" : "Eng"}
+      </button>
+    </div>
   );
 };
 
@@ -185,6 +232,10 @@ const MobileNavigationMenu = ({
               {link.label}
             </Link>
           ))}
+          {/* Language Switcher in Mobile Menu */}
+          <div className="flex justify-center pt-2">
+            <LanguageSwitcher isMenuOpen={isOpen} />
+          </div>
         </div>
       </div>
     </div>
@@ -192,6 +243,7 @@ const MobileNavigationMenu = ({
 };
 
 const NavHeader = () => {
+  const t = useTranslations("nav");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("#Intro");
   const isNavigatingRef = useRef(false);
@@ -276,10 +328,10 @@ const NavHeader = () => {
   };
 
   const navLinks = [
-    { href: "#Intro", label: "Home" },
-    { href: "#Products", label: "Games" },
-    { href: "#About", label: "About" },
-    { href: "#Contact", label: "Contact" },
+    { href: "#Intro", label: t("home") },
+    { href: "#Products", label: t("games") },
+    { href: "#About", label: t("about") },
+    // { href: "#Contact", label: t("contact") },
   ];
 
   const isActive = (href: string) => {
@@ -349,6 +401,7 @@ const NavHeader = () => {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
             <ThemeToggle onToggle={toggleTheme} />
           </div>
         </div>

@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "home": "首頁",
+    "games": "遊戲",
+    "about": "關於",
+    "contact": "聯絡"
+  },
+  "intro": {
+    "title": "GAMLIC",
+    "subtitle": "遊戲與共和的相遇",
+    "game": "GAM",
+    "e": "E",
+    "repub": "REPUB",
+    "lic": "LIC"
+  },
+  "products": {
+    "gameName": "腐朽核心",
+    "gameDescription": "《腐朽核心》 是個中世紀主題的回合制角色扮演遊戲。你是一個新手傭兵，為了找尋自己的起源，開始了在提諾迪拉的旅途。與不同的隊伍相遇、擊殺怪物、完成委託......你的每個選擇均在塑造獨一無二的旅程。",
+    "steam": "Steam"
+  },
+  "about": {
+    "description": "我們製作遊戲。來自香港。"
+  },
+  "contact": {
+    "title": "聯絡我們",
+    "getInTouch": "與我們聯繫",
+    "description": "有問題、合作想法，或只是想打個招呼？我們很樂意聽到您的消息！"
+  }
+}
+

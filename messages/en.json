@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "home": "Home",
+    "games": "Games",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "intro": {
+    "title": "GAMLIC",
+    "subtitle": "Where GAME meets REPUBLIC",
+    "game": "GAM",
+    "e": "E",
+    "repub": "REPUB",
+    "lic": "LIC"
+  },
+  "products": {
+    "gameName": "Chronia: The Rotcore",
+    "gameDescription": "A turn-based RPG set in the fantasy land of Tinotella. Play as a mercenary traveling across war-torn kingdoms to discover your origin. Customize your character, engage in tactical combat, and shape your own journey.",
+    "steam": "Steam"
+  },
+  "about": {
+    "description": "We make games. From HK."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "getInTouch": "Get in Touch",
+    "description": "Have a question, collaboration idea, or just want to say hello? We'd love to hear from you!"
+  }
+}
+
