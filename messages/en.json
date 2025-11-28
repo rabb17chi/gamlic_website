@@ -19,7 +19,14 @@
     "steam": "Steam"
   },
   "about": {
-    "description": "We make games. From HK."
+    "description": "We make games. From HK.",
+    "studioName": "GAMLIC",
+    "tagline": "Where GAME meets REPUBLIC",
+    "emailLabel": "Our Email",
+    "email": "contact@gamlicstudio.com",
+    "instagramLabel": "Instagram",
+    "instagramHandle": "@gamlic_studio",
+    "instagramUrl": "https://www.instagram.com/gamlic_studio"
   },
   "contact": {
     "title": "Contact Us",

@@ -9,8 +9,8 @@ const sectionLinks = [
 
 const resourceLinks = [
   { label: "News & Updates", href: "/news" },
-  { label: "Careers", href: "/careers" },
-  { label: "Press Kit", href: "/press" },
+  // { label: "Careers", href: "/careers" },
+  // { label: "Press Kit", href: "/press" },
 ];
 
 const socialLinks = [

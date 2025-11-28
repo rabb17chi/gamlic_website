@@ -26,7 +26,7 @@ export default function Products() {
   }, [isHovering]);
 
   return (
-    <div className="min-h-svh w-full py-40 lg:flex " id="Products">
+    <div className="min-h-svh w-full py-35 lg:flex " id="Products">
       <div
         className="max-w-7xl w-full m-auto lg:flex justify-center items-center flex-1"
         id="card-container"

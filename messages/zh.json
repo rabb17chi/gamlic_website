@@ -19,7 +19,14 @@
     "steam": "Steam"
   },
   "about": {
-    "description": "我們製作遊戲。來自香港。"
+    "description": "我們製作遊戲。來自香港。",
+    "studioName": "GAMLIC",
+    "tagline": "遊戲與共和的相遇",
+    "emailLabel": "我們的電郵",
+    "email": "contact@gamlicstudio.com",
+    "instagramLabel": "Instagram",
+    "instagramHandle": "@gamlic_studio",
+    "instagramUrl": "https://www.instagram.com/gamlic_studio"
   },
   "contact": {
     "title": "聯絡我們",
