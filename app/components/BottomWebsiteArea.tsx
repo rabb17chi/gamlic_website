@@ -4,7 +4,7 @@ const sectionLinks = [
   { label: "Home", href: "#Intro" },
   { label: "Games", href: "#Products" },
   { label: "About", href: "#About" },
-  { label: "Contact", href: "#Contact" },
+  // { label: "Contact", href: "#Contact" },
 ];
 
 const resourceLinks = [

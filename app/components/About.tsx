@@ -9,10 +9,10 @@ const About = () => {
 
   return (
     <div
-      className="flex flex-col w-full min-h-svh py-20 px-4 lg:px-8"
+      className="flex flex-col w-full min-h-svh py-20 items-center max-w-7xl"
       id="About"
     >
-      <div className="max-w-4xl mx-auto w-full">
+      <div className="mx-auto w-full min-h-svh flex flex-col justify-center items-center ">
         {/* Main Description */}
         <div className="mb-12 text-center">
           <p className="text-lg md:text-xl leading-relaxed">
