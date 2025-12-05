@@ -26,7 +26,7 @@ const BottomWebsiteArea = () => {
       className="w-full border-t border-dark/10 transition-colors duration-500 dark:border-light/10 mt-20 md:mt-0"
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[2.5fr_1fr_1fr]">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.3em] text-dark/70 dark:text-light/70">
               Site Map
@@ -56,7 +56,7 @@ const BottomWebsiteArea = () => {
             </ul>
           </nav>
 
-          <nav className="space-y-3 text-sm" aria-label="Resources">
+          {/* <nav className="space-y-3 text-sm" aria-label="Resources">
             <p className="text-xs uppercase tracking-[0.3em] text-dark/50 dark:text-light/50">
               Resources
             </p>
@@ -72,7 +72,7 @@ const BottomWebsiteArea = () => {
                 </li>
               ))}
             </ul>
-          </nav>
+          </nav> */}
 
           <nav className="space-y-3 text-sm" aria-label="Community">
             <p className="text-xs uppercase tracking-[0.3em] text-dark/50 dark:text-light/50">
