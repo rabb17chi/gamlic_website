@@ -33,8 +33,7 @@ const BottomWebsiteArea = () => {
             </p>
             <h3 className="text-2xl font-semibold">Explore GAMLIC</h3>
             <p className="text-sm text-dark/70 dark:text-light/60">
-              Jump to any section of the site, learn more about the studio, or
-              connect with the community.
+              Where GAME meets REPUBLIC
             </p>
           </div>
 
@@ -96,11 +95,11 @@ const BottomWebsiteArea = () => {
         </div>
 
         <div className="flex flex-col gap-4 border-t border-dark/10 pt-6 text-xs text-dark/60 dark:border-light/10 dark:text-light/60 md:flex-row md:items-center md:justify-between">
-          <p>
+          <p className="text-center w-full">
             &copy; {new Date().getFullYear()} GAMLIC Studio. All rights
             reserved.
           </p>
-          <div className="flex flex-wrap gap-4">
+          {/* <div className="flex flex-wrap gap-4">
             <Link href="/" className="hover:text-theme-test">
               Privacy
             </Link>
@@ -112,7 +111,7 @@ const BottomWebsiteArea = () => {
             <Link href="/" className="hover:text-theme-test">
               Support
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

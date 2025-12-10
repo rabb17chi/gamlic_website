@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 const STEAM_STORE_URL =
   "https://store.steampowered.com/app/3895050/Chronia_The_Rotcore/";
@@ -11,19 +11,6 @@ const STEAM_STORE_URL =
 export default function Products() {
   const t = useTranslations("products");
   const [isTrailerOpen, setIsTrailerOpen] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isHovering) {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-        videoRef.current.currentTime = 0;
-      }
-    }
-  }, [isHovering]);
 
   return (
     <div className="min-h-svh w-full py-35 lg:flex " id="Products">
@@ -36,46 +23,19 @@ export default function Products() {
             <div
               className="md:h-auto flex justify-center items-end md:items-center rounded-2xl overflow-hidden lg:w-3/5 lg:shrink-0 relative group"
               id="game-thumbnail-container"
-              onMouseEnter={() => {
-                if (window.innerWidth >= 768) {
-                  setIsHovering(true);
-                }
-              }}
-              onMouseLeave={() => {
-                if (window.innerWidth >= 768) {
-                  setIsHovering(false);
-                }
-              }}
             >
-              {/* Image - always rendered */}
               <Image
                 src="/assets/game/gamlic_rotcore_main.png"
                 width={1000}
                 height={0}
                 alt="Game Card"
-                className={`w-full transition-opacity duration-300 ${
-                  isHovering ? "opacity-0" : "opacity-100"
-                }`}
+                className="w-full"
               />
-              {/* Video - always rendered, positioned absolutely */}
-              <video
-                ref={videoRef}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-                  isHovering ? "opacity-100" : "opacity-0"
-                }`}
-                muted
-                loop
-                playsInline
-                src="/assets/game/rotcore_trailer.mp4"
-              />
-              {/* Play button overlay */}
               <div
-                className={`absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer transition-opacity duration-300 ${
-                  isHovering ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
+                className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors hover:bg-black/40"
                 onClick={() => setIsTrailerOpen(true)}
               >
-                <div className="bg-black/50 rounded-full p-4 hover:bg-black/70 transition-colors">
+                {/* <div className="bg-black/50 rounded-full p-4 hover:bg-black/70 transition-colors">
                   <svg
                     className="w-12 h-12 text-white"
                     fill="currentColor"
@@ -83,7 +43,7 @@ export default function Products() {
                   >
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                </div>
+                </div> */}
               </div>
             </div>
             <div
@@ -121,19 +81,15 @@ export default function Products() {
               >
                 <span className="text-lg w-full uppercase">Watch Trailer</span>
               </button>
-              <div
+              <Link
+                href={STEAM_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 id="game-links"
-                className="border text-center py-5 rounded-2xl hover:bg-green-300 transition-all duration-500 hover:cursor-pointer hover:text-black"
+                className="block border text-center py-5 rounded-2xl hover:bg-green-300 transition-all duration-500 hover:cursor-pointer hover:text-black text-lg w-full uppercase"
               >
-                <Link
-                  href={STEAM_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg w-full uppercase"
-                >
-                  {t("steam")}
-                </Link>
-              </div>
+                {t("steam")}
+              </Link>
             </div>
           </div>
         </div>
