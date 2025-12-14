@@ -31,10 +31,7 @@ export default function Products() {
                 alt="Game Card"
                 className="w-full"
               />
-              <div
-                className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors hover:bg-black/40"
-                onClick={() => setIsTrailerOpen(true)}
-              >
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors hover:bg-black/40">
                 {/* <div className="bg-black/50 rounded-full p-4 hover:bg-black/70 transition-colors">
                   <svg
                     className="w-12 h-12 text-white"
