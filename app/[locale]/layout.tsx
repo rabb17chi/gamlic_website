@@ -5,8 +5,11 @@ import "../globals.css";
 import NavHeader from "../components/nav_header";
 
 export const metadata: Metadata = {
-  title: "GAMLIC",
-  description: "A game-dev studio.",
+  title: "GAMLIC Studio",
+  description: "A game-dev studio from Hong Kong.",
+  icons: {
+    icon: "/assets/logo/logo_white_01.png",
+  },
 };
 
 export default async function LocaleLayout({
