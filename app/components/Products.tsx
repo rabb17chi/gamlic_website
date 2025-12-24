@@ -72,12 +72,13 @@ export default function Products() {
                   ))}
                 </ul>
               </div>
-              <button
+              {/* Trailer Button - Waiting for YouTube URL */}
+              {/* <button
                 onClick={() => setIsTrailerOpen(true)}
                 className="md:hidden w-full border text-center py-5 rounded-2xl hover:bg-blue-300 transition-all duration-500 hover:cursor-pointer hover:text-black mb-2"
               >
                 <span className="text-lg w-full uppercase">Watch Trailer</span>
-              </button>
+              </button> */}
               <Link
                 href={STEAM_STORE_URL}
                 target="_blank"
